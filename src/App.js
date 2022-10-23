@@ -37,7 +37,6 @@ function App() {
         <div className="box-strip box-strip-top-right"></div>
         <div className="box-strip box-strip-bottom-left"></div>
       </div>
-
       <div className="card">
         <div className="card-details">
           <div className="card-heading">
@@ -48,7 +47,6 @@ function App() {
             <p className="card-sub-title">Help us know you better.</p>
             <p className="card-sub-title">(This is how we optimize Wobot as per your business needs)</p>
           </div>
-
           <div className="card-form">
             <form className="card-form-details">
               <div className="form-group">
@@ -73,11 +71,10 @@ function App() {
               </div>
             </form>
           </div>
-
           <button type="submit" className="btn btn-primary btn-block" onClick={handleData}>Get Started</button>
         </div>
       </div>
-
+      <p className="bottom-content">Terms of use | Privacy policy</p>
     </div>
   );
 }

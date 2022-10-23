@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
   background-color: #f9f9f9;
   position: relative;
   overflow: hidden;
@@ -11,8 +13,8 @@
 .logo-box {
   height: 2rem;
   position: absolute;
-  z-index: 1;
-  top:1rem;
+  z-index: 8;
+  top: 1rem;
   left: 4rem;
 }
 
@@ -35,7 +37,6 @@
 .card-details {
   height: 100%;
   width: 100%;
-  /* background-color: aquamarine; */
 }
 
 .card-heading {
@@ -76,12 +77,13 @@
   text-align: left;
 }
 
-.form-group{
+.form-group {
   margin-bottom: 1rem;
 }
 
 .form-label {
-  font-size: 1rem;;
+  font-size: 1rem;
+  ;
   font-weight: 500;
   color: #343434;
   display: block;
@@ -99,32 +101,37 @@
   padding: 0.5rem;
   box-sizing: border-box;
 }
+.form-control:focus { 
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 10px #719ECE;
+}
 
-.form-control option{
+.form-control option {
   overflow: hidden;
 }
 
-.company-size{
-  height:1.5rem;
-  width:3.8rem;
+.company-size {
+  height: 1.5rem;
+  width: 3.8rem;
   background-color: #F0F0F0;
-  border-radius:2px;
+  border-radius: 2px;
   display: inline-block;
-  text-align:center;
+  text-align: center;
   cursor: pointer;
 }
 
-.gap{
-  margin-top:0.2rem;
-  margin-left:0.2rem;
+.gap {
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
   margin-right: 0.2rem;
 }
 
 .btn {
-  margin-top: 1rem!important;
+  margin-top: 1rem !important;
   display: inline-block;
   margin-top: 0;
-  font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -134,6 +141,7 @@
   border-radius: 5px;
   padding: 5px 15px;
   transition: all .5s;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -141,9 +149,26 @@
   border: 1px solid #3766e8;
   color: #fff;
 }
+
 .btn-block {
   display: block;
   width: 100%;
+}
+
+.btn:hover{
+  background: #194dde;
+}
+
+
+
+.bottom-content {
+  position: absolute;
+  z-index: 4;
+  top: 94%;
+  margin:1rem;
+  color:#545454;
+  font-size: 14px;
+  line-height:18.4px
 }
 
 .box-rotate-fixed {
