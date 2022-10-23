@@ -6,9 +6,25 @@ import { useState } from "react"
 function App() {
   const [companySize, setCompanySize] = useState(["1-20", "21-50", "51-200", "201-500", "500+"])
   const [size, setSize] = useState("");
+  const [formData, setFormData] = useState({
+    companyName: "",
+    industry: "",
+    companySize: "",
+  })
+
+  const handleInput = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    setFormData({ ...formData, [key]: value });
+  }
+
+  const handleData = () => {
+    console.log(formData);
+  }
+
   const handleCompanySize = (item) => {
     setSize(item)
-    //  console.log(item)
+    setFormData({ ...formData, companySize: item })
   }
 
   return (
@@ -37,19 +53,20 @@ function App() {
             <form className="card-form-details">
               <div className="form-group">
                 <label className="form-label">Company name</label>
-                <input type="text" className="form-control " placeholder="e.g. Example Inc" />
+                <input type="text" className="form-control " name="companyName" placeholder="e.g. Example Inc" onChange={handleInput} />
               </div>
               <div className="form-group">
                 <label className="form-label">Industry</label>
-                <select className="form-control">
-                  <option value="Option0">Select</option>
+                <select className="form-control" name="industry" onChange={handleInput}>
+                  <option value="">Select</option>
                   <option value="Option1">Option1</option>
+                  <option value="Option2">Option2</option>
                 </select>
               </div>
               <div className="form-group">
                 <label className="form-label">Company size</label>
                 {companySize.map((item) => (
-                  <div className="company-size gap" onClick={() => handleCompanySize(item)}>
+                  <div className="company-size gap" onClick={() => handleCompanySize(item)} style={item === size ? { backgroundColor: "#3766E8", color: "#ffffff" } : null}>
                     {item}
                   </div>
                 ))}
@@ -57,7 +74,7 @@ function App() {
             </form>
           </div>
 
-          <button type="submit" className="btn btn-primary btn-block">Get Started</button>
+          <button type="submit" className="btn btn-primary btn-block" onClick={handleData}>Get Started</button>
         </div>
       </div>
 
