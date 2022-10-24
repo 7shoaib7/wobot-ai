@@ -1,7 +1,11 @@
 import './App.css';
 import logo from './assets/images/wobot-logo.svg';
 import cardLogo from './assets/images/Solid_lines.svg';
-import { useState } from "react"
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function App() {
   const [companySize, setCompanySize] = useState(["1-20", "21-50", "51-200", "201-500", "500+"])
@@ -18,9 +22,39 @@ function App() {
     setFormData({ ...formData, [key]: value });
   }
 
+
+  const validateInput = (data) => {
+    if (!data.companyName) {
+      toast.warning('Company name is required !', {
+        position: "top-right"
+      });
+      return false
+    }
+
+    if (!data.industry) {
+      toast.warning('Industry is required !', {
+        position: "top-right"
+      });
+      return false
+    }
+    if (!data.companySize) {
+      toast.warning('Company size is required !', {
+        position: "top-right"
+      });
+      return false
+    }
+    return true;
+  };
+
   const handleData = () => {
+    if (!validateInput(formData)) return
+    toast.success('Success !', {
+      position: "top-right"
+    });
     console.log(formData);
   }
+
+
 
   const handleCompanySize = (item) => {
     setSize(item)
@@ -64,7 +98,7 @@ function App() {
               <div className="form-group">
                 <label className="form-label">Company size</label>
                 {companySize.map((item) => (
-                  <div className="company-size gap" onClick={() => handleCompanySize(item)} style={item === size ? { backgroundColor: "#3766E8", color: "#ffffff" } : null}>
+                  <div key={item} className="company-size gap" onClick={() => handleCompanySize(item)} style={item === size ? { backgroundColor: "#3766E8", color: "#ffffff" } : null}>
                     {item}
                   </div>
                 ))}
@@ -72,6 +106,7 @@ function App() {
             </form>
           </div>
           <button type="submit" className="btn btn-primary btn-block" onClick={handleData}>Get Started</button>
+          <ToastContainer />
         </div>
       </div>
       <p className="bottom-content">Terms of use | Privacy policy</p>
