@@ -26,12 +26,21 @@
 .card {
   width: 22rem;
   height: 30rem;
-  margin: 1rem;
+  margin: 2rem 1rem;
   border-radius: 20px;
   background-color: #ffffff;
   box-shadow: 6px 6px 30px hsl(0deg 0% 62% / 11%);
   z-index: 2;
   padding: 1rem 2rem;
+}
+
+@media (max-width: 475px) {
+  .card{
+    height: 33rem;
+    margin: 4rem 1.2rem;
+    border-radius:1rem;
+    padding: 1rem 1rem;
+  }
 }
 
 .card-details {
@@ -47,7 +56,7 @@
 }
 
 .card-logo {
-  height: 2rem;
+  height: 2.5rem;
 }
 
 .card-logo img {
@@ -205,3 +214,5 @@
   max-width: 44%;
   border-top: 8px solid #e0e8fc;
 }
+
+
